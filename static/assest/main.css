@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+body {
+    font-family: 'PT Serif', serif;
+  }
+
+#content-main .select {
+  border-radius: 0%;
+}
+
+.btn {
+  border-radius: 0%;
+}
+
+.form-group input {
+  outline: none;
+}
