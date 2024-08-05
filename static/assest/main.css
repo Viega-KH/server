@@ -1,17 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
 
-body {
-    font-family: 'PT Serif', serif;
-  }
+#id_password {
+  display: none;
+}
 
-#content-main .select {
-  border-radius: 0%;
+.card {
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.055);
+  box-shadow: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#content-tab .card .row .text-left {
+  display: none;
+}
+
+#content-tab .card .row .field-content {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  max-width: 100%;
+}
+
+#recent-actions-module h3 {
+  display: none;
+}
+
+#recent-actions-module .timeline h3 {
+  display: block;
 }
 
 .btn {
-  border-radius: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#changelist-form #content-main #changelist .row .row .actions .form-control {
+  padding-top: 1px;
+}
+
+body {
+  background-color: #f4f6f9;
+}
+
+.content-header h1 {
+  display: none;
 }
 
 .form-group input {
   outline: none;
 }
+
+.login-box .login-logo {
+  display: none;
+}
+.login-box .card-body {
+  border-top: 2px solid #007bff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.login-box .card-body p {
+  display: none;
+}
+

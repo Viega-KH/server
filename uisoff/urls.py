@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     home, about, leader, new, 
     newdet, contactsite, contactmessage,
-    homeselekt, tablesite
+    homeselekt, tablesite, clubs
 )
 
 
@@ -16,4 +16,5 @@ urlpatterns = [
     path('contact/', contactsite, name='contactsite'),
     path('contact/message/', contactmessage, name='contactmessage'),
     path('home/select/', homeselekt, name='homeselekt'),
+    path('clubs/', clubs, name='clubs'),
 ]

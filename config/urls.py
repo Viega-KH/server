@@ -6,12 +6,16 @@ from django.views.static import serve
 from django.urls import path, include, re_path
 
 urlpatterns = [
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
     path('', include('uisoff.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
 ]
 
 
 urlpatterns += [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+
+if settings.DEBUG:
+  urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

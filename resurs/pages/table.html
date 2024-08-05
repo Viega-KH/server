@@ -42,10 +42,10 @@
             </div>
             <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
                 <div class="sidebar-box">
-                    <form method="get" action="{% url 'tablesite' %}" class="search-form">
+                    <form method="get" action="{% url 'tablesite' %}" class="search-form" >
                         <div class="form-group py-1">
                             <select name="table" id="select-school" class="form-control select2 select-school">
-                                <option section>{% if selected_school %}{{ selected_school }} - maktab{% else %}Tanlang{% endif %}</option>
+                                <option section>Tanlang</option>
                                 {% for school in schools %}
                                 <option value="{{ school }}" >{{school}} - maktab</option>
                                 {% endfor %}

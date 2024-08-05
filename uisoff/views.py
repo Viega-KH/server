@@ -8,7 +8,7 @@ from slevel.models import infolevel
 from django.http import JsonResponse
 from statest.models import statestic
 from contact.models import contact
-
+from clubs.models import club
 
 
 
@@ -139,6 +139,8 @@ def contactmessage(request):
             return JsonResponse({'error': 'All fields are required.'}, status=400)
     return JsonResponse()
 
+
+
 def tablesite(request):
     new = news.objects.all().order_by('-created_at')[:5]
     schools = infoschool.objects.values_list('title', flat=True)
@@ -157,3 +159,23 @@ def tablesite(request):
         'new':new
     }
     return render(request, 'pages/table.html', context)
+
+
+def clubs(request):
+    new = news.objects.all().order_by('-created_at')[:5]
+    schools = infoschool.objects.values_list('title', flat=True)
+    last_school = schools.last() if schools else None
+    selected_school = request.GET.get('table')
+    print(selected_school)
+    print(last_school)
+    if selected_school:
+        clublist = club.objects.filter(wschool__title__icontains=selected_school).order_by('-created_at')
+    else:
+        clublist = club.objects.filter(wschool__title__icontains=last_school).order_by('-created_at') if last_school else club.objects.none()
+    context = {
+        'schools': schools,
+        'selected_school': selected_school or last_school,
+        'clublist': clublist,
+        'new': new
+    }
+    return render(request, 'pages/clubs.html', context)

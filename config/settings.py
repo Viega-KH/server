@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y)(a2hp2(j72ig@0@h_(%*cimrbge)si^w!)u^snu))zg#cemb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -54,8 +54,7 @@ INSTALLED_APPS_PACKAGES = [
     'dal_select2',
     'rest_framework',
     'django_filters',
-    'ckeditor',
-    'ckeditor_uploader',
+    'django_ckeditor_5',
 ]
 
 # Barcha ilovalarni va paketlarni birlashtirish
@@ -129,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -160,84 +159,11 @@ else:
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'toolbarCanCollapse': True,
-        'height': 'auto',
-        'width': 'auto',
-        'filebrowserUploadUrl': '/ckeditor/upload/',
-        'filebrowserImageUploadUrl': '/ckeditor/upload/',
-        'extraAllowedContent': 'img[!src,alt,width,height]; iframe[*]'
-    }
-}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-##
-JAZZMIN_SETTINGS = {
-    "show_ui_builder": True,
-    "theme": "default",
-    "show_sidebar": True,
-    "navigation_expanded": False,
-    "custom_css": 'assest/main.css',
-    "custom_js": 'assest/main.js',
-    "icons": {
-        "product": "fas fa-box",
-        "product.Product": "fas fa-table",
-        "account.CsUser": "fas fa-user",
-        "account": "fas fa-cog",
-        "product.Categore": "fas fa-tags",
-        "auth.Group": "fas fa-users",
-        "auth.logout": "fas fa-sign-out-alt", 
-        "order": "fas fa-hourglass-start", 
-        "order.Order": "fas fa-clipboard-check", 
-    },
-    "custom_links": {
-    "auth": [{
-        "name": "Log Out", 
-        "url": "admin:logout", 
-        "icon": "fas fa-sign-out-alt",
-    }],
-
-    
-}
-}
-
-
-JAZZMIN_UI_TWEAKS = {
-    "navbar_small_text": False,
-    "footer_small_text": False,
-    "body_small_text": False,
-    "brand_small_text": False,
-    "brand_colour": False,
-    "accent": "accent-navy",
-    "navbar": "navbar-white navbar-light",
-    "no_navbar_border": True,
-    "navbar_fixed": False,
-    "layout_boxed": False,
-    "footer_fixed": False,
-    "sidebar_fixed": True,
-    "sidebar": "sidebar-dark-primary",
-    "sidebar_nav_small_text": False,
-    "sidebar_disable_expand": False,
-    "sidebar_nav_child_indent": False,
-    "sidebar_nav_compact_style": False,
-    "sidebar_nav_legacy_style": True,
-    "sidebar_nav_flat_style": True,
-    "theme": "cosmo",
-    "dark_mode_theme": None,
-    "button_classes": {
-        "primary": "btn-outline-primary",
-        "secondary": "btn-outline-secondary",
-        "info": "btn-info",
-        "warning": "btn-warning",
-        "danger": "btn-danger",
-        "success": "btn-success"
-    },
-    "actions_sticky_top": False
-}
+from .assest import JAZZMIN_SETTINGS, JAZZMIN_UI_TWEAKS, CKEDITOR_5_CONFIGS
