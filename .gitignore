@@ -6,9 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# Ignore Django migration files
-*/migrations/
-
 # Distribution / packaging
 .Python
 build/
@@ -118,6 +115,8 @@ venv.bak/
 
 # mkdocs documentation
 /site
+
+*/migrations/
 
 # mypy
 .mypy_cache/
