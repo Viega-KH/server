@@ -4,7 +4,7 @@ from django.db import models
 class librarycategore(models.Model):
     name = models.CharField(max_length=225, verbose_name = "категория")
     def __str__(self):
-        return f'категория'
+        return self.name
             
 
     class Meta:
