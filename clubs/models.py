@@ -9,8 +9,8 @@ class club(models.Model):
     leader = models.CharField(max_length=255, verbose_name = "учитель")
     days = models.CharField(max_length=255, verbose_name = "день")
     meeting_time = models.CharField(max_length=255, verbose_name = "час")
-    published_date = models.DateField(auto_now_add=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateField(auto_now_add=True, verbose_name = "Время")
+    created_at = models.DateTimeField(auto_now_add=True)	
 
     class Meta:
         verbose_name = "урок"

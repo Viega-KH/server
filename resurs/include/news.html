@@ -16,11 +16,11 @@
         </div>
     </div>
 </section>
-<section class="ftco-section">
+<section class="ftco-section p-3 p-md-5 p-lg-7">
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
+            <div class="col-lg-8 ftco-animate sidebar-box fadeInUp ftco-animated">
                 <h3 class="mb-3">#. {{ new.title }}</h3>
                 <p>{{ new.content|safe }}</p>
             </div>
@@ -57,13 +57,4 @@
         </div>
     </div>
 </section>
-<style>
-    /* CKEditor ichidagi rasm uchun maxsus uslub */
-    .col-lg-8 p img {
-        max-width: 100%;
-        /* Rasm kengligini konteyner kengligidan oshmasligi uchun */
-        height: auto;
-        /* Rasm balandligini avtomatik sozlash */
-    }
-</style>
 {% endblock ui %}

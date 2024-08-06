@@ -14,6 +14,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": False,
     "custom_css": 'assest/main.css',
     "custom_js": 'assest/main.js',
+    "copyright": "SOFTWARE SERVICES",
     # "icons": {
     #     "blogs": "fas fa-box", 
     # },

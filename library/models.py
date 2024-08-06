@@ -4,7 +4,7 @@ from django.db import models
 class librarycategore(models.Model):
     name = models.CharField(max_length=225, verbose_name = "категория")
     def __str__(self):
-        self.name
+        return self.name
             
 
     class Meta:
@@ -20,7 +20,7 @@ class library(models.Model):
     published_date = models.DateField(auto_now_add=True, verbose_name = "время")
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        self.name
+        return self.name
 
         
     class Meta:

@@ -33,7 +33,7 @@ class infoschool(models.Model):
 
 
 class officeschool(models.Model):
-    positiono = models.ForeignKey(positionschool, on_delete=models.CASCADE, verbose_name = "позиция")
+    positiono = models.ForeignKey(positionschool, on_delete=models.CASCADE, related_name='positionschool', verbose_name = "позиция")
     wschool = models.ForeignKey(infoschool, on_delete=models.CASCADE, verbose_name = "школы")
     full_name = models.CharField(max_length=100, verbose_name = "имя Фамилия")
     acceptance = models.CharField(max_length=100, verbose_name = "день поступления")

@@ -12,10 +12,17 @@ urlpatterns = [
 ]
 
 
+# Media fayllar uchun URL pattern
 urlpatterns += [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 
+# Statik fayllar uchun URL pattern
+urlpatterns += [
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+]
 
+# DEBUG rejimida media va statik fayllar uchun sozlamalar
 if settings.DEBUG:
-  urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

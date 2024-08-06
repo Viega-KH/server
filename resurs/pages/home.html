@@ -253,53 +253,46 @@
 	</div>
 </section>
 
-<section class="ftco-section testimony-section" style="padding-top:50px;padding-bottom:0px;">
+<section class="ftco-section testimony-section p-3 p-md-5 p-lg-7">
 	<div class="container">
-		<div class="row justify-content-center mb-5 pb-2 ftco-animate">
-			<div class="col-md-8 text-center heading-section ftco-animate">
-				<h2 class="mb-4"><span>Murojat</span> Uchun</h2>
-				<p>Yashnobod tuman maktabgacha va maktab ta’limi bo‘limi uchun murojatlar yuborishingiz mumkun</p>
-			</div>
-		</div>
 		<div class="wrapper" style='box-shadow:none;'>
 			<div class="row no-gutters">
 				<div class="col-md-7 d-flex align-items-stretch">
 					<div class="contact-wrap w-100 p-md-5 p-4">
-						<h3 class="mb-4">Murojat</h3>
+						<h3 class="mb-4">Murojat Uchun</h3>
 						<div id="form-message-warning" class="mb-4"></div>
 						<div id="form-message-success" class="mb-4">
 							Talab yoki taklifingizni yuborishingiz mumkun !
 						</div>
-						<form method="POST" id="contactForm" name="contactForm" novalidate="novalidate">
+						<form method="POST" id="contactForm" name="contactForm" novalidate="novalidate">{% csrf_token %}
 							<div class="row ftco-animate">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" name="name" id="name"
+										<input type="text" required class="form-control" name="name" id="name"
 											placeholder="Isim">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="number" class="form-control" name="phone" id="phone"
+										<input type="number" required class="form-control" name="phone" id="phone"
 											placeholder="Telfon Raqam">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" name="subject" id="subject"
+										<input type="text" required class="form-control" name="subject" id="subject"
 											placeholder="Mavzu">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<textarea name="message" class="form-control" id="message" cols="30" rows="7"
+										<textarea name="message" required class="form-control" id="message" cols="30" rows="7"
 											placeholder="Murojat Matni"></textarea>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="submit" value="Yuborish" class="btn btn-primary">
-										<div class="submitting"></div>
+										<button id="contact" type='button' class="btn btn-primary" >Yuborish</button>
 									</div>
 								</div>
 							</div>
@@ -341,6 +334,7 @@
 		</div>
 	</div>
 </section>
+
 <section class="ftco-section testimony-section" style="padding-top:70px;padding-bottom:10px;">
 	<div class="container">
 		<div class="row justify-content-center mb-2 pb-1">
@@ -395,4 +389,5 @@
 		</div>
 	</div>
 </section>
+{% include "include/contact.html" %}
 {% endblock ui %}

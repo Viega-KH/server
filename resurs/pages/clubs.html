@@ -82,16 +82,16 @@
                 <div class="sidebar-box">
                     <form method="get" action="{% url 'clubs' %}" class="search-form">
                         <div class="form-group py-1">
-                            <select name="table" id="select-school" class="form-control select2 select-school">
-                                <option section>Tanlang</option>
+                            <select name="table" id="select-school" class="form-control custom-select">
+                                <option disabled selected>Tanlang</option>
                                 {% for school in schools %}
-                                <option value="{{ school }}">{{school}} - maktab</option>
+                                <option value="{{ school }}">{{ school }} - maktab</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <button class='btn btn-primary rounded-0' type="submit">Qidirish</button>
                     </form>
-                </div>
+                </div>                
                 <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
                     <h3>So'ngi Yangiliklar</h3>
 

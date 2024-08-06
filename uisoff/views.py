@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from statest.models import statestic
 from contact.models import contact
 from clubs.models import club
+from library.models import library, librarycategore
 
 
 
@@ -142,6 +143,7 @@ def contactmessage(request):
 
 
 def tablesite(request):
+    newfooter = news.objects.all().order_by('-created_at')[:2]
     new = news.objects.all().order_by('-created_at')[:5]
     schools = infoschool.objects.values_list('title', flat=True)
     schools_top = infoschool.objects.values_list('title', flat=True).order_by()[:4]
@@ -156,12 +158,14 @@ def tablesite(request):
         'schools': schools,
         'selected_school': selected_school,
         'schools_top': schools_top,
+        'newfooter': newfooter,
         'new':new
     }
     return render(request, 'pages/table.html', context)
 
 
 def clubs(request):
+    newfooter = news.objects.all().order_by('-created_at')[:2]
     new = news.objects.all().order_by('-created_at')[:5]
     schools = infoschool.objects.values_list('title', flat=True)
     last_school = schools.last() if schools else None
@@ -176,6 +180,27 @@ def clubs(request):
         'schools': schools,
         'selected_school': selected_school or last_school,
         'clublist': clublist,
-        'new': new
+        'new': new,
+        'newfooter': newfooter,
     }
     return render(request, 'pages/clubs.html', context)
+
+
+def libraryviews(request):
+    newfooter = news.objects.all().order_by('-created_at')[:2]
+    new = news.objects.all().order_by('-created_at')[:5]
+    librarys = library.objects.all().order_by('-created_at')
+    librarycategores = librarycategore.objects.values_list('name', flat=True)
+    selected_library = request.GET.get('selected_library')
+    print(selected_library)
+    if selected_library:
+        librarys = library.objects.filter(categore__name__icontains=selected_library).order_by('-created_at')
+
+    context = {
+        'librarycategores':librarycategores,
+        'librarys':librarys,
+        'newfooter': newfooter,
+        'selected_library ':selected_library,
+        'new': new
+    }
+    return render(request, 'pages/library.html', context)

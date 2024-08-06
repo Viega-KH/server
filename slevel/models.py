@@ -32,7 +32,7 @@ class infolevel(models.Model):
 
 
 class officelevel(models.Model):
-    positiono = models.ForeignKey(positionlevel, on_delete=models.CASCADE, verbose_name = "позиция")
+    positiono = models.ForeignKey(positionlevel, on_delete=models.CASCADE, related_name='positionlevel', verbose_name = "позиция")
     wslevel = models.ForeignKey(infolevel, on_delete=models.CASCADE, verbose_name = "Д.О.У")
     full_name = models.CharField(max_length=100, verbose_name = "имя Фамилия")
     acceptance = models.CharField(max_length=100, verbose_name = "день поступления")

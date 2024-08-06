@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ui %}
+<section class="hero-wrap hero-wrap-2"
+    style="background-image: url('https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                <h2 class="mb-2 bread">BOSHQARMA</h2>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{{ home }}">Bosh sahifa<i
+                                class="ion-ios-arrow-forward"></i></a></span><span>Rahbariyat Haqida<i
+                            class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section p-3 p-md-5 p-lg-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+
+                {% if library %}
+                {% for list in librarys %}
+                <div class="p-2 bg-light d-flex align-items-center" style="margin-bottom:1px;">
+                    <div class="d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px; background-color: #e9ecef; border-radius: 50%; margin-right: 10px;">
+                        <span class="fa-solid fa-bookmark fa-lg"></span>
+                    </div>
+                    <a href="{{ list.file.url }}" class="text-dark mr-3">{{ list.name }}</a>
+                    <div class="ml-auto d-flex align-items-center">
+                        <a class="text-dark" href="{{ list.file.url }}">25/04/2024&nbsp;&nbsp;|</a>
+                        <a class="text px-2" style='text-decoration:underline;' href="{{ list.file.url }}" target="_blank">Batafsil</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="p-2 bg-light text-center" style="margin-bottom:1px;">
+                    Kitob topilmadi.
+                </div>
+                {% endif %}
+
+            </div>
+            <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
+                <div class="sidebar-box">
+                    <form method="get" action="{% url 'library' %}" class="search-form">
+                        <div class="form-group py-1">
+                            <select name="selected_library" class="form-control select2" style="width: 100%;">
+                                <option disabled selected>Tanlang</option>
+                                {% for librarycategores in librarycategores %}
+                                <option value="{{ librarycategores }}">{{ librarycategores }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button class="btn btn-primary rounded-0" type="submit">Qidirish</button>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+                    <h3>So'ngi Yangiliklar</h3>
+                    {% for list in new %}
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" href="{% url 'newdet' list.id %}"
+                            style="background-image: url({{ list.image.url }});"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'newdet' list.id %}">{{ list.title|slice:":55" }}</a>
+                            </h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> {{ list.published_date }}</a></div>
+                                <div><a href="#"><span class="icon-person"></span>Admin</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock ui %}

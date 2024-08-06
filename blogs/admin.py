@@ -8,17 +8,21 @@ class newsForm(forms.ModelForm):
         fields = '__all__'
 
 class newsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'published_date',)
+    list_filter = ('category', 'published_date')
+    search_fields = ('title',) 
+    list_per_page = 10
     form = newsForm
     fieldsets = (
         (None, {
             'fields': ('title', 'image', 'category',)
         }),
-        ('content', {
+        ('Содержание', {
             'fields': ('content',),
-            'classes': ('wide',),  # Bu content maydonini kengaytiradi
+            'classes': ('wide',),  
         }),
     )
-    readonly_fields = ('created_at',)  # `created_at` maydonini o'zgartirilmasligini ta'minlash
+    readonly_fields = ('created_at',)  
 
 admin.site.register(category)
 admin.site.register(news, newsAdmin)
