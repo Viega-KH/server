@@ -13,7 +13,7 @@ class StatesticAdmin(admin.ModelAdmin):
     edit_icon.short_description = 'Edit'
     edit_icon.allow_tags = True
 
-    # def has_add_permission(self, request):
-    #     return False
+    def has_add_permission(self, request):
+        return False
 
 admin.site.register(statestic, StatesticAdmin)
