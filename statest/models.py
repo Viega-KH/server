@@ -11,7 +11,7 @@ class statestic(models.Model):
     chiledu = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(99999)], verbose_name = "ученик Д.О.У")
 
     def __str__(self):
-        return f'{self.schools}-{self.educati}'
+        return f'статистика'
     
     
     class Meta:

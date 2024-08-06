@@ -5,7 +5,7 @@ class department(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f'позиция'
     
     class Meta:
         verbose_name = "позиция"
@@ -22,7 +22,7 @@ class leadership(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.full_name}"
+        return f"Лидер"
 
 
     class Meta:

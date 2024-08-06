@@ -15,4 +15,4 @@ class contact(models.Model):
 
 
     def __str__(self):
-        return f"{self.full_name} - {self.phone}"
+        return f"последнее"

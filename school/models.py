@@ -24,7 +24,7 @@ class infoschool(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'школы'
     
     class Meta:
         verbose_name = "школы"
@@ -43,7 +43,7 @@ class officeschool(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) 
 
     def __str__(self):
-        return self.full_name
+        return f'лидерство'
     
         
     class Meta:

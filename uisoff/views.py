@@ -10,7 +10,7 @@ from statest.models import statestic
 from contact.models import contact
 from clubs.models import club
 from library.models import library, librarycategore
-
+from statest.models import statestic
 
 
 def home(request):

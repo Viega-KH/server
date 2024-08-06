@@ -10,7 +10,7 @@ class category(models.Model):
         verbose_name_plural = "категоре"
 
     def __str__(self):
-        return self.name
+        return f'категоре'
 
 class news(models.Model):
     title = models.CharField(max_length=200, verbose_name="заголовок")
@@ -25,4 +25,4 @@ class news(models.Model):
         verbose_name_plural = "новости" 
 
     def __str__(self):
-        return self.title
+        return f'новость'

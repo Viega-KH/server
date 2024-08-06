@@ -1,10 +1,22 @@
 from django.contrib import admin
-from .models import contactlink
-# Register your models here.
 from django.contrib.auth.models import User, Group
+from .models import contactlink
+from django.utils.html import format_html
+from django.urls import reverse
 
-# User va Group modellarini admin paneldan olib tashlash
+
+
+@admin.register(contactlink)
+class ContactLinkAdmin(admin.ModelAdmin):
+    def edit_icon(self, obj):
+        url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.pk])
+        # Font Awesome ikonasidan foydalanish
+        return format_html('<a href="{}" title="Edit"><i class="fas fa-edit"></i></a>', url)
+    edit_icon.short_description = 'Edit'
+    edit_icon.allow_tags = True
+    
+    list_display = ('email', 'telegram', 'instagram', 'facebook', 'call', 'edit_icon')
+
+
 admin.site.unregister(User)
 admin.site.unregister(Group)
-
-admin.site.register(contactlink)

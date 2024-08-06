@@ -11,7 +11,7 @@ class wclases(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'класс'
     
     class Meta:
         verbose_name = "класс"
@@ -25,7 +25,7 @@ class lesson(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.wschool)
+        return f'список'
     
     class Meta:
         verbose_name = "список"

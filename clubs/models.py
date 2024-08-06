@@ -17,4 +17,4 @@ class club(models.Model):
         verbose_name_plural = "урок"
 
     def __str__(self):
-        return self.name
+        return f'урок'

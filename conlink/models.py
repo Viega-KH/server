@@ -17,4 +17,4 @@ class contactlink(models.Model):
 
 
     def __str__(self):
-        return f'{self.location} - {self.email}'
+        return f'связь'
