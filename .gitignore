@@ -54,6 +54,7 @@ cover/
 
 staticfiles/
 static/
+static_cdn/
 # Translations
 *.mo
 *.pot
