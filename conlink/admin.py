@@ -16,7 +16,11 @@ class ContactLinkAdmin(admin.ModelAdmin):
     edit_icon.allow_tags = True
     
     list_display = ('email', 'telegram', 'instagram', 'facebook', 'call', 'edit_icon')
-
+    
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 admin.site.unregister(User)
 admin.site.unregister(Group)
