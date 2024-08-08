@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     home, about, leader, new, 
     newdet, contactsite, contactmessage,
-    homeselekt, tablesite, clubs, libraryviews
+    homeselekt, tablesite, clubs, libraryviews, newad
 )
 
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('office/', leader, name='leader'),
     path('news/', new, name='news'),
+    path('news/ad/', newad, name='newad'),
     path('new/<int:id>/', newdet, name='newdet'),
     path('table/', tablesite, name='tablesite'),
     path('contact/', contactsite, name='contactsite'),

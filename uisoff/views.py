@@ -105,6 +105,15 @@ def new(request):
     return render(request, 'pages/news.html', {'page_obj': page_obj, 'newfooter':newfooter})
 
 
+def newad(request):
+    newfooter = news.objects.all().order_by('-created_at')[:2]
+    news_list = news.objects.filter(category__name__icontains='E`lon').order_by('-created_at')
+    paginator = Paginator(news_list, 6) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'pages/newad.html', {'page_obj': page_obj, 'newfooter':newfooter})
+
+
 
 
 def newdet(request, id):
